@@ -35,7 +35,7 @@ const register = () => {
                 photoUrl: profilePic,
             }))
         })
-    })
+    }).catch(error => alert(error));
 }
 
     return (

@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchCount } from './counterAPI';
+
 
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
     user: null,
   }
-
+,
   reducers: {
     increment: (state) => {
      
@@ -18,29 +18,11 @@ export const userSlice = createSlice({
       incrementByAmount: (state, action) => {
       state.value += action.payload;
     },
-  },
- 
-  extraReducers: (builder) => {
-    builder
-      .addCase(incrementAsync.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(incrementAsync.fulfilled, (state, action) => {
-        state.status = 'idle';
-        state.value += action.payload;
-      });
-  },
+  }, 
 });
 
 export const { increment, decrement, incrementByAmount } = userSlice.actions;
 
-export const selectCount = (state) => state.counter.value;
-
-export const incrementIfOdd = (amount) => (dispatch, getState) => {
-  const currentValue = selectCount(getState());
-  if (currentValue % 2 === 1) {
-    dispatch(incrementByAmount(amount));
-  }
-};
+export const selectUser = (state) => state.user.user;
 
 export default userSlice.reducer;

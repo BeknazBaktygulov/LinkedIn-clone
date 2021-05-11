@@ -12,9 +12,6 @@ import { logout, selectUser } from './features/counter/userSlice';
 import { auth } from './firebase';
 
 function Header() {
-   
-
-
     const dispatch = useDispatch()
 
     const logoutOfApp = () => {
